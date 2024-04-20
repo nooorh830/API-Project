@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Moments</title>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+</head>
+<body style=" background-image: linear-gradient( 135deg, #FFE985 10%, #FA742B 100%);">
+   <!-- start modle  -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">UserName:</label>
+              <input type="text" class="form-control" id="recipient-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-PassWord" class="col-form-label">PassWord:</label>
+              <input type="password" class="form-control" id="recipient-PassWord" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="loginBtmClicked()" >Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- regist modle  -->
+  <div class="modal fade" id="registerMOdle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="registerMOdleLabel">Register</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="register-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="register-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="register-nameUser" class="col-form-label">UserName:</label>
+              <input type="text" class="form-control" id="register-nameUser" required>
+            </div>
+            <div class="mb-3">
+              <label for="register-email" class="col-form-label">email:</label>
+              <input type="text" class="form-control" id="register-email" required>
+            </div>
+            <div class="mb-3">
+              <label for="register-PassWord" class="col-form-label">Password:</label>
+              <input type="password" class="form-control" id="register-PassWord" required>
+            </div>
+            <div class="mb-3">
+              <label for="personImg" class="form-label">Image</label>
+              <input class="form-control" type="file" id="personImg">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="registerBtmClicked()" >Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start modal add  -->
+  <!-- <div class="modal fade" id="addModle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addModleLabel">New Post</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="input-group flex-nowrap">
+              <input type="text" id="Title" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group my-2">
+              <textarea class="form-control" id="textarea" aria-label="With textarea"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Image</label>
+              <input class="form-control" type="file" id="formFile">
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="addNewPost()" >Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+  <!-- start alert  -->
+  <div id="success-alert" class=" fade show  "></div>
+  <!-- end alert  -->
+
+<!-- nav cont -->
+  <div class="container pt-2 col-9">
+    <nav class="navbar shadow-lg rounded navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html">Share Moments</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" onclick="pofilePage()" >Profile</a>
+                </li>
+            </ul>
+            <div id="btms" style="display: flex;">
+                <!-- no logged in user  -->
+                <button id="login-btn" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-primary ">Login</button>
+                <button id="register-btn" type="button" class="btn btn-primary mx-2"  data-bs-toggle="modal"  data-bs-target="#registerMOdle" >Register</button>
+                <!-- for login user  -->
+                <div id="hidUser" style="display: none;">
+                <img id="nav-img" src="img\OIP.jpg" class="rounded-circle border border-2" style="width: 40px; height: 40px;" alt="">
+                <b id="nav-username" class="mx-2">user name </b>
+                <button id="logout-btn" type="button"  data-bs-toggle="modal" onclick="logout()" class="btn btn-outline-primary mx-1">Logout</button>
+            </div>
+            </div>
+            </div>
+        </div>
+        </nav>
+  </div>
+
+  <!-- main content  -->
+  <div class="container mt-5 col-9">
+    <!-- user's post  -->
+    <div>
+      <h1>
+        <span id="username-span">
+          Yousif
+        </span>
+        Post
+      </h1>
+   </div>
+   <div class="card shadow-lg mb-3" id="post-card">
+    <div class="card-header">
+        <img src="img/OIP.jpg" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
+        <b>@Nora123</b>
+    </div>
+    <div class="card-body">
+        <img src="img/neom-ckfXPMb2_BI-unsplash.jpg"  class="w-100 rounded" style="max-height: 500px;">
+        <h6 style="color: gray; " class="mt-1">2 min ago </h6>
+        <h5 class="card-title">Hello World</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <hr>
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+              <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+            </svg>
+            
+            (3) Comments
+          </span>
+        </div>
+        <hr>
+      </div>
+      <!-- commments -->
+      <div id="comments">
+        <div class="p-3" style="background-color: #fcfcfc;">
+          <!-- profile pic + User name  -->
+          <div>
+            <img src="img/OIP.jpg" class="rounded-circle border border-2" style="width: 40px; height: 40px;" alt="">
+            <b>@Nora123</b>
+          </div>
+          <!-- comment body  -->
+          <div>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur debitis ad sint ea a necessitatibus possimus reiciendis, numquam quibusdam ac
+          </div>
+      </div>
+    </div>
+    <div class="input-group mb-3 " id="content-comment">
+      <input type="text" id="Bodycom" class="form-control rounded-0 "  aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn  rounded-0 btn-primary " type="button" id="button-addon2" onclick="addCommnt()">Add</button>
+    </div>
+
+
+
+  </div>
+
+  </div>
+
+
+
+  <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#addModle" id="addBtm" class="btn btn-primary rounded-circle " style="position: fixed;
+      bottom: 60px;
+      z-index: 999;
+      right: 20px;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 6px 8px 1px #00000073;">+</button> -->
+
+
+</body>
+<script src="main.js"></script>
+<script>
+
+  const urlParams = new URLSearchParams(window.location.search)
+  const id = urlParams.get("postId")
+  // console.log(id)
+
+  function showPost(){
+
+    axios.get(`https://tarmeezacademy.com/api/v1/posts/${id}`)
+      .then((response) => {
+        // console.log(response.data)
+        const post = response.data.data
+        const postComments = post.comments
+
+        document.getElementById("username-span").innerHTML =`${post.author.name}`
+        
+        let commentsContent = ``
+        for (comment of postComments){
+          commentsContent += `
+          <div class="p-3" >
+          <!-- profile pic + User name  -->
+          <div>
+            <img src="${comment.author.profile_image}" class="rounded-circle border border-2" style="width: 40px; height: 40px;" alt="">
+            <b>@${comment.author.username}</b>
+          </div>
+          <!-- comment body  -->
+          <div>
+           ${comment.body}
+          </div>
+          </div>
+          `
+
+        }
+
+        document.getElementById("post-card").innerHTML = `
+        <div class="card-header">
+            <img src="${post.author.profile_image}" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
+            <b>@${post.author.username}</b>
+        </div>
+        <div class="card-body">
+            <img src="${post.image}"  class="w-100 rounded" style="max-height: 500px;">
+            <h6 style="color: gray; " class="mt-1">${post.created_at} </h6>
+            <h5 class="card-title">${post.title}</h5>
+            <p class="card-text">${post.body}</p>
+            <hr>
+            <div>
+            <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+            </svg>
+
+            (${post.comments_count}) Comments
+            <span id="post-tags-${post.id}"> 
+                   
+                  </span>
+            </span>
+          </div>
+          <hr>
+        </div>
+        <div id="comments">
+          ${commentsContent}
+        </div>
+          <div class="input-group mb-3 " id="content-comment">
+            <input type="text" id="Bodycom" class="form-control rounded-0 "  aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn  rounded-0 btn-primary " type="button" id="button-addon2" onclick="addCommnt()">Add</button>
+          </div>
+        `
+        document.getElementById(`post-tags-${post.id}`).innerHTML = ""
+        let postTagId = `post-tags-${post.id}`
+
+        for (tag of post.tags){
+          document.getElementById(postTagId).innerHTML = `
+          <button class=" btn btn-sm rounded-5 " style="background-color:gray; color:white">
+                    ${tag.name}
+                    </button>
+          `
+        }
+
+       
+       
+      
+      })
+      .catch(error =>{
+        console.log(error)
+        // let message = error.response.data.message
+        // showSuccessAlert(message,"danger " )
+      })
+  }
+  showPost()
+
+  function addCommnt(){
+    let addCommenBtm = document.getElementById("Bodycom").value
+    let token = localStorage.getItem("token")
+  
+
+    let comBody = {
+      "body": addCommenBtm
+    }
+
+    let headers = {
+    "authorization": `Bearer ${token}`
+  }
+  axios.post(`https://tarmeezacademy.com/api/v1/posts/${id}/comments`,comBody, {
+    headers: headers
+  })
+  .then((response) => {
+  //  console.log(response)
+    showSuccessAlert("Add Comment Successful ","success" )
+    showPost()
+  })
+  .catch(error =>{
+    // console.log(error)
+    let message = error.response.data.message 
+    showSuccessAlert(message,"danger " )
+  })
+  }
+
+  function hiddenComment(){
+    
+    let token = localStorage.getItem("token");
+    // let addCommen = document.getElementById("Bodycom")
+    let addCommenBTM = document.getElementById("content-comment")
+
+    if(token == null) //not logged in 
+    {
+      addCommenBTM.style.display = "none"
+      showPost()
+    
+    }else{
+      addCommenBTM.style.display = "block"
+    }
+  }
+
+  hiddenComment()
+ 
+</script>
+</html>
