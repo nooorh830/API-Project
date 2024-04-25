@@ -1,112 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Moments</title>
-    
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Moments</title>
+  <!-- IMPORT BOOTSTRAP & AXIOS -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
 
-    <style>
-      /* loder stayle */
-      .lds-roller {
-      display: inline-block;
-      position: relative;
-      width: 80px;
-      height: 80px;
-      }
-      .lds-roller div {
-      animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      transform-origin: 40px 40px;
-      }
-      .lds-roller div:after {
-      content: " ";
-      display: block;
-      position: absolute;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #fff;
-      margin: -4px 0 0 -4px;
-      }
-      .lds-roller div:nth-child(1) {
-      animation-delay: -0.036s;
-      }
-      .lds-roller div:nth-child(1):after {
-      top: 63px;
-      left: 63px;
-      }
-      .lds-roller div:nth-child(2) {
-      animation-delay: -0.072s;
-      }
-      .lds-roller div:nth-child(2):after {
-      top: 68px;
-      left: 56px;
-      }
-      .lds-roller div:nth-child(3) {
-      animation-delay: -0.108s;
-      }
-      .lds-roller div:nth-child(3):after {
-      top: 71px;
-      left: 48px;
-      }
-      .lds-roller div:nth-child(4) {
-      animation-delay: -0.144s;
-      }
-      .lds-roller div:nth-child(4):after {
-      top: 72px;
-      left: 40px;
-      }
-      .lds-roller div:nth-child(5) {
-      animation-delay: -0.18s;
-      }
-      .lds-roller div:nth-child(5):after {
-      top: 71px;
-      left: 32px;
-      }
-      .lds-roller div:nth-child(6) {
-      animation-delay: -0.216s;
-      }
-      .lds-roller div:nth-child(6):after {
-      top: 68px;
-      left: 24px;
-      }
-      .lds-roller div:nth-child(7) {
-      animation-delay: -0.252s;
-      }
-      .lds-roller div:nth-child(7):after {
-      top: 63px;
-      left: 17px;
-      }
-      .lds-roller div:nth-child(8) {
-      animation-delay: -0.288s;
-      }
-      .lds-roller div:nth-child(8):after {
-      top: 56px;
-      left: 12px;
-      }
-      @keyframes lds-roller {
-      0% {
-      transform: rotate(0deg);
-      }
-      100% {
-      transform: rotate(360deg);
-      }
-      }
+  <link rel="stylesheet" href="./css/final.css">
 
 
-    </style>
-   
 
-   
+
 </head>
 
-<body style=" background-image: linear-gradient( 135deg, #FFE985 10%, #FA742B 100%);">
+<body class="bg-light">
+
   <!-- loder -->
-  <div id="loader" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px ; margin: 0px auto; display: flex; justify-content: center; align-items: center; z-index: 9999; background-color: #9e9e9ea3">
-    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <div id="loader"
+    style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px ; margin: 0px auto; display: flex; justify-content: center; align-items: center; z-index: 9999; background-color: #9e9e9ea3">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
   <!-- MODLE  -->
   <!--START LOGIN MODLE  -->
@@ -131,7 +56,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="loginBtmClicked()" >Login</button>
+          <button type="button" class="btn btn-primary" onclick="loginBtmClicked()">Login</button>
         </div>
       </div>
     </div>
@@ -170,7 +95,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="registerBtmClicked()" >Register</button>
+          <button type="button" class="btn btn-primary" onclick="registerBtmClicked()">Register</button>
         </div>
       </div>
     </div>
@@ -186,7 +111,8 @@
         <div class="modal-body">
           <form>
             <div class="input-group flex-nowrap">
-              <input type="text" id="Title" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="addon-wrapping">
+              <input type="text" id="Title" class="form-control" placeholder="Title" aria-label="Username"
+                aria-describedby="addon-wrapping">
               <input type="hidden" id="post-id-input" value="">
             </div>
             <div class="input-group my-2">
@@ -198,10 +124,11 @@
             </div>
           </form>
         </div>
-        
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" id="post-modal-submit-btn" class="btn btn-primary" onclick="addNewPost()" >Create</button>
+          <button type="button" id="post-modal-submit-btn" class="btn btn-primary"
+            onclick="addNewPost()">Create</button>
         </div>
       </div>
     </div>
@@ -215,9 +142,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delet the post ? 
-            <span id="delet-post-title"></span></p>
-            <input type="hidden" id="delet-post-id-input" value="">
+          <p>Are you sure you want to delet the post ?
+            <span id="delet-post-title"></span>
+          </p>
+          <input type="hidden" id="delet-post-id-input" value="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -226,81 +154,204 @@
       </div>
     </div>
   </div>
-  
+
   <!--END LOGIN MODLE  -->
   <!-- start alert  -->
   <div id="success-alert" class=" fade show  "></div>
   <!-- end alert  -->
-  
-  
-    <!-- nav cont  -->
-    <div class="container pt-2 col-9">
-        <nav class="navbar shadow-lg rounded navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Share Moments</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" onclick="pofilePage()" >Profile</a>
-                  </li>
-                </ul>
-                <div id="btms" style="display: flex;">
-                  <!-- no logged in user  -->
-                  <button id="login-btn" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-primary ">Login</button>
-                  <button id="register-btn" type="button" class="btn btn-primary mx-2"  data-bs-toggle="modal"  data-bs-target="#registerMOdle" >Register</button>
-                  <!-- for login user  -->
-                 <div id="hidUser" style="display: none;">
-                  <img id="nav-img" src="img\OIP.jpg" class="rounded-circle border border-2" style="width: 40px; height: 40px;" alt="">
-                  <b id="nav-username" class="mx-2">user name </b>
-                  <button id="logout-btn" type="button"  data-bs-toggle="modal" onclick="logout()" class="btn btn-outline-primary mx-1">Logout</button>
-                </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-    </div>
-     <!-- Main cont  -->
-    <div class="container mt-5 col-9">
-       <div id="posts">
-        <!-- one post  -->
-        <div class="card shadow-lg mb-3">
-            <div class="card-header">
-                <img src="img/OIP.jpg" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
-                <b>@Nora123</b>
-            </div>
-            <div class="card-body">
-                <img src="img/neom-ckfXPMb2_BI-unsplash.jpg"  class="w-100 rounded" style="max-height: 500px;">
-                <h6 style="color: gray; " class="mt-1">2 min ago </h6>
-                <h5 class="card-title">Hello World</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <hr>
-                <div>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                      <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                    </svg>
-                    
-                    (3) Comments
-                  </span>
-                </div>
+
+
+  <!-- start header -->
+  <div class=" pt-2  bg-white">
+    <nav class="navbar container col-9 navbar-expand-lg ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Share Moments</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="pofilePage()">Profile</a>
+            </li>
+          </ul>
+          <div id="btms" style="display: flex;">
+            <!-- no logged in user  -->
+            <button class="btn btn-outline-warning " id="login-btn" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Login</button>
+
+            <button class="btn mx-2 btn-warning" id="register-btn" type="button" data-bs-toggle="modal"
+              data-bs-target="#registerMOdle">Register</button>
+            <!-- for login user  -->
+            <div id="hidUser" style="display: none;">
+              <img id="nav-img" src="img\OIP.jpg" class="rounded-circle border border-2"
+                style="width: 40px; height: 40px;" alt="">
+              <b id="nav-username" class="mx-2">user name </b>
+              <button id="logout-btn" type="button" data-bs-toggle="modal" onclick="logout()"
+                class="btn btn-outline-primary mx-1">Logout</button>
             </div>
           </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- end hesder  -->
+  <!-- start landing  -->
+  <div class="landing bg-primary text-center  ">
 
+    <div class="container text-light  col-9 h-100 d-flex  justify-content-center align-items-center">
+      <div class="text">
+        <h1> Share Moments</h1>
+        <p>Share your interests and continue creating wonderful memories </p>
+        <button class="btn btn-info text-light ">Get start </button>
+      </div>
+    </div>
 
+    <div class="info-box ">
 
-
-          
-       </div>
+      <div class="box">
+        <div>
+          <span class="num" data-goal="180">0</span>
+          <h3>User</h3>
+        </div>
       </div>
 
-      <button type="button" onclick="addBtnClicked()" id="addBtm" class="btn btn-primary rounded-circle " 
-      style="position: fixed;
+      <div class="box">
+        <div>
+          <span class="num" data-goal="150">0</span>
+          <h3>Post</h3>
+        </div>
+      </div>
+
+
+      <div class="box ">
+        <div>
+          <span class="num" data-goal="110">0</span>
+          <h3>Command</h3>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+
+  <!-- end landing  -->
+  <!-- Main cont  -->
+  <div class="container  mt-5 col-9">
+
+
+
+
+    <div id="posts" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-6">
+      <!-- one post  -->
+      <div>
+        <div class="card shadow-sm rounded-0 border-secondary-subtle border-1 mb-3 p-0 ">
+          <div class="card-header ">
+            <img src="img/OIP.jpg" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
+            <b>@Nora123</b>
+          </div>
+          <div class="card-body p-0 ">
+            <img src="img/istockphoto-1458862741-612x612.jpg" class="w-100 " style="height: 200px;">
+            <div class="p-3">
+              <h6 style="color: gray; " class="mt-1">2 min ago </h6>
+              <h5 class="card-title">Hello World</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <hr>
+              <div>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path
+                      d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                  </svg>
+
+                  (3) Comments
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
+
+      <div>
+        <div class="card shadow-sm rounded-0 border-secondary-subtle border-1 mb-3 p-0 ">
+          <div class="card-header">
+            <img src="img/f16814449cec5801fee1d676d425ddd0.png" class="rounded-circle border border-2"
+              style="width: 50px; height: 50px;" alt="">
+            <b>@Yousif</b>
+          </div>
+          <div class="card-body p-0 ">
+            <img src="img/istockphoto-1434359956-612x612.jpg" class="w-100 " style="height: 200px;">
+            <div class="p-3">
+              <h6 style="color: gray; " class="mt-1">2 min ago </h6>
+              <h5 class="card-title">Hello World</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <hr>
+              <div>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path
+                      d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                  </svg>
+
+                  (7) Comments
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card shadow-sm rounded-0 border-secondary-subtle border-1 mb-3 p-0 ">
+          <div class="card-header">
+            <img src="img/brown-ringlets-icon-256x256-8grfw1aq.png" class="rounded-circle border border-2"
+              style="width: 50px; height: 50px;" alt="">
+            <b>@Yasneem</b>
+          </div>
+          <div class="card-body p-0 ">
+            <img src="img/istockphoto-1491121046-612x612.jpg" class="w-100 " style="height: 200px;">
+            <div class="p-3">
+              <h6 style="color: gray; " class="mt-1">2 min ago </h6>
+              <h5 class="card-title">Hello World</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <hr>
+              <div>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path
+                      d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                  </svg>
+
+                  (10) Comments
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <button type="button" onclick="addBtnClicked()" id="addBtm" class="btn btn-primary rounded-circle " style="position: fixed;
       bottom: 60px;
       z-index: 999;
       right: 20px;
@@ -311,13 +362,14 @@
 </body>
 <script src="./main.js"></script>
 <script>
+
   getpost()
   setupUI()
 
 
   let currentPage = 1;
   let lastPage = 1
-  window.addEventListener("scroll",function(){
+  window.addEventListener("scroll", function () {
 
     // let endofPage = window.innerHeight + window.pageYOffset >= document.body.scrollHeight ;
     // if(endofPage && currentPage < lastPage){
@@ -325,225 +377,235 @@
     //   currentPage++
     // }
   })
- 
 
-  function getpost(page = 1, reload = true){
+
+  function getpost(page = 1, reload = true) {
 
     var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
+      method: 'GET',
+      redirect: 'follow'
+    };
 
-  
-  toggleLoader(true)
 
-  fetch(`https://tarmeezacademy.com/api/v1/posts?limit=10&page=${page}`, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-      // loder
-      toggleLoader(false)
+    toggleLoader(true)
 
-      lastPage = result.meta.last_page
-     
-      if(reload){
-        
-        document.getElementById("posts").innerHTML = ""
-      }
-      // console.log(result.data[0].author.profile_image)
-      let data = result.data 
-      for (i of data){
-        
-        //  show or hide (edit) buttn 
-       
-        let user = getCurrentUser()
-        let isMyPost = user != null && i.author.id == user.id
-        let editBtmContent = ``
-        let deletBtmContent = ``
+    fetch(`https://tarmeezacademy.com/api/v1/posts?limit=11&page=${page}`, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        // loder
+        toggleLoader(false)
+        //numder counts 
+        numderCounte()
 
-        if(isMyPost){
-         editBtmContent = ` <button class="btn btn-secondary" onclick="editpostbtn('${encodeURIComponent(JSON.stringify(i))}')" style="float : right" >Edit</button>`
-         deletBtmContent = ` <button class="btn btn-danger mx-2" onclick="deletPostBtnClicked('${encodeURIComponent(JSON.stringify(i))}')" style="float : right"; >Delet</button>`
+        lastPage = result.meta.last_page
+
+        if (reload) {
+
+          // document.getElementById("posts").innerHTML = ""
         }
+        // console.log(result.data[0].author.profile_image)
+        let data = result.data
+        // console.log(result.meta.total)
 
-        document.getElementById("posts").innerHTML += `
-        <div class="card shadow-lg mb-3">
+
+        for (i of data) {
+
+
+          //  show or hide (edit) buttn 
+
+          let user = getCurrentUser()
+          let isMyPost = user != null && i.author.id == user.id
+          let editBtmContent = ``
+          let deletBtmContent = ``
+
+          if (isMyPost) {
+            editBtmContent = ` <button class="btn btn-secondary" onclick="editpostbtn('${encodeURIComponent(JSON.stringify(i))}')" style="float : right" >Edit</button>`
+            deletBtmContent = ` <button class="btn btn-danger mx-2" onclick="deletPostBtnClicked('${encodeURIComponent(JSON.stringify(i))}')" style="float : right"; >Delet</button>`
+          }
+
+          document.getElementById("posts").innerHTML += `
+        <div>
+        <div class="card shadow-sm rounded-0 border-secondary-subtle border-1 mb-3 p-0">
             <div class="card-header" style="cursor: pointer;" >
-                <img onclick="porfileClicked(${i.author.id})" src="${i.author.profile_image }" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
+                <img onclick="porfileClicked(${i.author.id})" src="${i.author.profile_image}" class="rounded-circle border border-2" style="width: 50px; height: 50px;" alt="">
                 <b onclick="porfileClicked(${i.author.id})" >@${i.author.name}</b>
                 ${editBtmContent}
                 ${deletBtmContent}
             </div>
-            <div class="card-body" onclick="postClicked(${i.id})" style =" cursor: pointer ;">
-                <img src="${i.image}"  class="w-100 rounded" style="max-height: 500px;">
-                <h6 style="color: gray; " class="mt-1">${i.created_at} </h6>
-                <h5 class="card-title">${i.title}</h5>
-                <p class="card-text">${i.body}</p>
-                <hr>
-                <div>
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                      <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                    </svg>
+            <div class="card-body p-0" onclick="postClicked(${i.id})" style =" cursor: pointer ;">
+                <img src="${i.image}"  class="w-100" style="height: 200px;">
+                <div class="p-3">
+                  <h6 style="color: gray; " class="mt-1">${i.created_at} </h6>
+                  <h5 class="card-title">${i.title}</h5>
+                  <p class="card-text">${i.body}</p>
+                  <hr>
+                  <div>
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                      </svg>
+                      
+                      (${i.comments_count}) Comments
+                    </span>
+                    <span id="post-tags-${i.id}"> 
                     
-                    (${i.comments_count}) Comments
-                  </span>
-                  <span id="post-tags-${i.id}"> 
-                   
-                  </span>
+                    </span>
+                  </div>
                 </div>
             </div>
           </div>
+        </div>
         
         `
-        document.getElementById(`post-tags-${i.id}`).innerHTML = ""
-        let postTagId = `post-tags-${i.id}`
+          document.getElementById(`post-tags-${i.id}`).innerHTML = ""
+          let postTagId = `post-tags-${i.id}`
 
-        for (tag of i.tags){
-          document.getElementById(postTagId).innerHTML = `
+          for (tag of i.tags) {
+            document.getElementById(postTagId).innerHTML = `
           <button class=" btn btn-sm rounded-5 " style="background-color:gray; color:white">
                     ${tag.name}
                     </button>
           `
-        }
-    }
-    })
-    .catch(error => {
-
-      let message = error.message
-     showSuccessAlert(message,"danger " )
-   
-    })
-    .finally(() => {
-      toggleLoader(false)
-    })
-  }
-  
-
-    function loginBtmClicked() {
-      let UserName = document.getElementById("recipient-name").value
-      let PassWord = document.getElementById("recipient-PassWord").value
-      
-      let prams = {
-        "username" : UserName,
-        "password" : PassWord
           }
-    
-      axios.post("https://tarmeezacademy.com/api/v1/login",prams)
+        }
+      })
+      .catch(error => {
+
+        let message = error.message
+        showSuccessAlert(message, "danger ")
+
+      })
+      .finally(() => {
+        toggleLoader(false)
+      })
+  }
+
+
+  function loginBtmClicked() {
+    let UserName = document.getElementById("recipient-name").value
+    let PassWord = document.getElementById("recipient-PassWord").value
+
+    let prams = {
+      "username": UserName,
+      "password": PassWord
+    }
+
+    axios.post("https://tarmeezacademy.com/api/v1/login", prams)
       .then((response) => {
         // console.log(response.data)
         localStorage.setItem("token", response.data.token)
-        localStorage.setItem("user", JSON.stringify(response.data.user) )
-        
-        
-      
+        localStorage.setItem("user", JSON.stringify(response.data.user))
+
+
+
         let modle = document.getElementById("exampleModal")
         let modleInstansce = bootstrap.Modal.getInstance(modle)
         modleInstansce.hide()
 
-        showSuccessAlert("Login successfully ","success" )
+        showSuccessAlert("Login successfully ", "success")
         setupUI()
       })
-      .catch(error =>{
-        
+      .catch(error => {
+
         let message = error.response.data.message
-        showSuccessAlert(message,"danger " )
+        showSuccessAlert(message, "danger ")
       })
 
-    }    
+  }
 
 
-    function registerBtmClicked() {
-      let User = document.getElementById("register-name").value
-      let UserName = document.getElementById("register-nameUser").value
-      let email = document.getElementById("register-email").value
-      let PassWord = document.getElementById("register-PassWord").value
-      let personImg = document.getElementById('personImg').files[0];
-     
-      
-      var myHeaders = new Headers();
-      myHeaders.append("Accept", "application/json");
-
-      var formdata = new FormData();
-      formdata.append("username", UserName);
-      formdata.append("password", PassWord);
-      formdata.append("name", User);
-      formdata.append("email", email);
-      formdata.append("image", personImg);
+  function registerBtmClicked() {
+    let User = document.getElementById("register-name").value
+    let UserName = document.getElementById("register-nameUser").value
+    let email = document.getElementById("register-email").value
+    let PassWord = document.getElementById("register-PassWord").value
+    let personImg = document.getElementById('personImg').files[0];
 
 
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: formdata,
-        redirect: 'follow'
-      };
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
 
-      fetch("https://tarmeezacademy.com/api/v1/register", requestOptions)
-        .then(response => response.json())
-        .then(response => {
-          // console.log(response)
-          localStorage.setItem("token", response.token)
-          localStorage.setItem("user", JSON.stringify(response.user) )
-         
-          let modle = document.getElementById("registerMOdle")
-          let modleInstansce = bootstrap.Modal.getInstance(modle)
-          modleInstansce.hide()
-
-          showSuccessAlert("New User Registerd" , "success" )
-          setupUI()
-        })
-        .catch(error => {
-          let message = error.message
-        showSuccessAlert(message,"danger " )
-        
-        });
+    var formdata = new FormData();
+    formdata.append("username", UserName);
+    formdata.append("password", PassWord);
+    formdata.append("name", User);
+    formdata.append("email", email);
+    formdata.append("image", personImg);
 
 
-    }    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: formdata,
+      redirect: 'follow'
+    };
 
- 
-  function showSuccessAlert(customMessage , type){
-      let alertPlaceholder = document.getElementById('success-alert')
-      let appendAlert = (message, type) => {
+    fetch("https://tarmeezacademy.com/api/v1/register", requestOptions)
+      .then(response => response.json())
+      .then(response => {
+        // console.log(response)
+        localStorage.setItem("token", response.token)
+        localStorage.setItem("user", JSON.stringify(response.user))
 
-        let wrapper = document.createElement('div')
-        wrapper.innerHTML = [
+        let modle = document.getElementById("registerMOdle")
+        let modleInstansce = bootstrap.Modal.getInstance(modle)
+        modleInstansce.hide()
+
+        showSuccessAlert("New User Registerd", "success")
+        setupUI()
+      })
+      .catch(error => {
+        let message = error.message
+        showSuccessAlert(message, "danger ")
+
+      });
+
+
+  }
+
+
+  function showSuccessAlert(customMessage, type) {
+    let alertPlaceholder = document.getElementById('success-alert')
+    let appendAlert = (message, type) => {
+
+      let wrapper = document.createElement('div')
+      wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
         `   <div>${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
-        ].join('')
+      ].join('')
 
-        alertPlaceholder.append(wrapper)
-        }
-
-        appendAlert(customMessage, type)
-
-
-        //todo alrt 
-      //   setTimeout(() => {
-      //     // let alert = bootstrap.Alert.getOrCreateInstance('#success-alert')
-      //     // alert.close()
-
-         
-
-      //   },2000)
-       
-      }
-      
-  
- 
-
-
-    function logout() {
-      localStorage.removeItem("token")
-      localStorage.removeItem("user")
-      showSuccessAlert("Logged out successfully","warning" )
-      setupUI()
+      alertPlaceholder.append(wrapper)
     }
 
+    appendAlert(customMessage, type)
 
-  function setupUI(){
+
+    //todo alrt 
+    //   setTimeout(() => {
+    //     // let alert = bootstrap.Alert.getOrCreateInstance('#success-alert')
+    //     // alert.close()
+
+
+
+    //   },2000)
+
+  }
+
+
+
+
+
+  function logout() {
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    showSuccessAlert("Logged out successfully", "warning")
+    setupUI()
+  }
+
+
+  function setupUI() {
 
     let token = localStorage.getItem("token")
 
@@ -551,174 +613,118 @@
     let registerBtm = document.getElementById("register-btn")
     let logoutBtm = document.getElementById("logout-btn")
 
-    if(token == null) //not logged in 
+    if (token == null) //not logged in 
     {
       logoutBtm.style.display = "none"
       loginBtm.style.display = "inline-block"
       registerBtm.style.display = "inline-block"
-    }else{
-    //for log in user 
+      document.getElementById("addBtm").style.display = "none"
+      document.getElementById("hidUser").style.display = "none"
+
+    } else {
+      //for log in user 
       loginBtm.style.display = "none"
       registerBtm.style.display = "none"
       logoutBtm.style.display = "inline-block"
       document.getElementById("addBtm").style.display = "flex"
-      document.getElementById("hidUser").style.display= "inline-block"
+      document.getElementById("hidUser").style.display = "inline-block"
 
       let user = getCurrentUser()
       document.getElementById("nav-username").innerHTML = user.username
 
       document.getElementById("nav-img").src = user.profile_image
-      
+
     }
   }
 
 
-  function getCurrentUser(){
+  function getCurrentUser() {
     let user = null
     let storageUser = localStorage.getItem("user")
-    if (storageUser != null){
+    if (storageUser != null) {
       user = JSON.parse(storageUser)
     }
     return user
   }
- 
-// function addNewPost(){
-//   let postId = document.getElementById("post-id-input").value
-//   let isCreate = postId == null || postId == ""
-
-//   let title = document.getElementById("Title").value
-//   let textarea = document.getElementById("textarea").value
-//   let dataURL = document.getElementById('formFile').files[0];
-//   let token = localStorage.getItem("token")
- 
-//   let formdata = new FormData();
-//   formdata.append("image", dataURL);
-//   formdata.append("body", textarea);
-//   formdata.append("title", title);
-  
-//   let headers = {
-//     "authorization": `Bearer ${token}`
-//   }
-
-//   if(isCreate){
-
-//     axios.post("https://tarmeezacademy.com/api/v1/posts",formdata, {
-//       headers: headers
-//     })
-//     .then((response) => {
-//       let modle = document.getElementById("addModle")
-//       let modleInstansce = bootstrap.Modal.getInstance(modle)
-//       modleInstansce.hide()
-//       getpost()
-//       showSuccessAlert("New Post Has Been Created ","success" )
-      
-//     })
-//     .catch(error =>{
-      
-//       let message = error.response.data.message 
-//       showSuccessAlert(message,"danger " )
-//     })
-//   }else{
-//     formdata.append("_method", "put");
-//     axios.post(`https://tarmeezacademy.com/api/v1/posts/${postId}`,formdata, {
-//       headers: headers
-//     })
-//     .then((response) => {
-//       let modle = document.getElementById("addModle")
-//       let modleInstansce = bootstrap.Modal.getInstance(modle)
-//       modleInstansce.hide()
-//       getpost()
-//       showSuccessAlert("The Post Has Been edit ","success" )
-      
-//     })
-//     .catch(error =>{
-      
-//       let message = error.response.data.message 
-//       showSuccessAlert(message,"danger " )
-//     })
 
 
-//   }
+  // function addNewPost(){
+  //   let postId = document.getElementById("post-id-input").value
+  //   let isCreate = postId == null || postId == ""
 
-// }
-
-function postClicked(postid){
-  window.location.replace(`./postDetails.html?postId=${postid}`);
-}
-function porfileClicked(userid){
-  // alert(userid)
-  // return
-  window.location.replace(`./profile.html?userid=${userid}`);
-}
-
-// function editpostbtn(postId){
-//   let post = JSON.parse(decodeURIComponent(postId))
-//   // console.log(post)
-//   // return
-//   document.getElementById("post-id-input").value = post.id
-//   document.getElementById("Title").value = post.title
-//   document.getElementById("textarea").value = post.body
-//   document.getElementById("addModleLabel").innerHTML = "Edit Post"
-//   document.getElementById("post-modal-submit-btn").innerHTML = "Update"
-//   let postModle = new bootstrap.Modal(document.getElementById("addModle"),{})
-//   postModle.toggle()
-
-// }
-
-// function deletPostBtnClicked(postId){
-//   let post = JSON.parse(decodeURIComponent(postId))
-//   document.getElementById("delet-post-id-input").value = post.id
-//   let postModle = new bootstrap.Modal(document.getElementById("delet-post-modal"),{})
-//   postModle.toggle()
-
-// }
- 
-// function confirmPostDelet() {
-//   const postId =  document.getElementById("delet-post-id-input").value
-//   let token = localStorage.getItem("token");
-//   let headers = {
-//     "authorization": `Bearer ${token}`
-//   }
-  
-//   // alert(postId)
-//   // return
-
-//   axios.delete(`https://tarmeezacademy.com/api/v1/posts/${postId}`,{
-//     headers:headers
-//   })
-//   .then((response) => {
-//     // console.log(response)
-//     // return
-    
-//     let modle = document.getElementById("delet-post-modal")
-//     let modleInstansce = bootstrap.Modal.getInstance(modle)
-//     modleInstansce.hide()
-
-//     showSuccessAlert("The post has been Deleted Successfully ","success" )
-//     getpost()
-//   })
-//   .catch(error =>{
-    
-//     let message = error.response.data.message
-//     showSuccessAlert(message,"danger " )
-//   })
-// }
+  // function addNewPost(){
+  //   let postId = document.getElementById("post-id-input").value
+  //   let isCreate = postId == null || postId == ""
 
 
- 
-
-function addBtnClicked(){
- 
-  document.getElementById("post-id-input").value = ""
-  document.getElementById("Title").value = ""
-  document.getElementById("textarea").value = ""
-  document.getElementById("addModleLabel").innerHTML = "Create A New Post "
-  document.getElementById("post-modal-submit-btn").innerHTML = "Create"
-  let postModle = new bootstrap.Modal(document.getElementById("addModle"),{})
-  postModle.toggle()
-}
+  function postClicked(postid) {
+    window.location.replace(`./postDetails.html?postId=${postid}`);
+  }
+  function porfileClicked(userid) {
+    // alert(userid)
+    // return
+    window.location.replace(`./profile.html?userid=${userid}`);
+  }
 
 
-</script> 
+
+
+
+  function addBtnClicked() {
+
+    document.getElementById("post-id-input").value = ""
+    document.getElementById("Title").value = ""
+    document.getElementById("textarea").value = ""
+    document.getElementById("addModleLabel").innerHTML = "Create A New Post "
+    document.getElementById("post-modal-submit-btn").innerHTML = "Create"
+    let postModle = new bootstrap.Modal(document.getElementById("addModle"), {})
+    postModle.toggle()
+  }
+
+  //fun for numder counts 
+  function numderCounte() {
+    let nums = document.querySelectorAll(".info-box .num")
+    let section = document.querySelector(".landing")
+    let started = false
+
+
+    if (!started) {
+      nums.forEach((x) => {
+        startCount(x)
+      })
+
+    }
+    started = true
+
+    // window.onscroll = function () {
+    //   if (window.scrollY >= section.offsetTop) {
+    //     if (!started) {
+    //       nums.forEach((x) => {
+    //         startCount(x)
+    //       })
+
+    //     }
+    //     started = true
+    //   }
+    // }
+
+
+  }
+
+
+  function startCount(ele) {
+    let goal = ele.dataset.goal;
+    // alert(goal)
+
+    let count = setInterval(() => {
+      ele.textContent++;
+
+      if (ele.textContent == goal) {
+        clearInterval(count)
+      }
+    }, 3000 / goal)
+  }
+
+</script>
 
 </html>
